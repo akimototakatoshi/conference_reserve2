@@ -5,9 +5,9 @@ import json
 import pandas as pd
 
 
-page = st.sidebar.selectbox('Choose your page',['users', 'rooms', 'bookings'])
+page = st.sidebar.selectbox('Choose your page',['ユーザー登録', '会議室登録', '予約画面'])
 
-if page == 'users':
+if page == 'ユーザー登録':
     st.title('ユーザー登録画面')
     with st.form(key='user'):
         # user_id: int = random.randint(0, 10)
@@ -27,9 +27,8 @@ if page == 'users':
         )
         if res.status_code == 200:
             st.success('ユーザー登録完了')
-        st.json(res.json())
 
-elif page == 'rooms':
+elif page == '会議室登録':
     st.title('会議室登録画面')
 
     with st.form(key='room'):
@@ -51,9 +50,8 @@ elif page == 'rooms':
         )
         if res.status_code == 200:
             st.success('会議室登録完了')
-        st.json(res.json())
 
-elif page == 'bookings':
+elif page == '予約画面':
     st.title('会議室予約画面')
     # ユーザー一覧取得
     url_users = 'http://127.0.0.1:8000/users'
